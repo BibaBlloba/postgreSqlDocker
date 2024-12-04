@@ -11,9 +11,10 @@ services:
     volumes:
       - ./data:/var/lib/postgresql/data/postgres
     networks:
-        - post
+      - post
 
   pgadmin:
+    user: "${UID}:${GID}"
     container_name: pgadmin
     image: dpage/pgadmin4
     environment:
@@ -25,7 +26,7 @@ services:
     ports:
       - "81:80"
     networks:
-        - post
+      - post
 
 volumes:
   postgres:
