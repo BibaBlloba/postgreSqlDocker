@@ -1,6 +1,7 @@
 services:
-  postgres:
+  postgresDev:
     image: postgres:latest
+    container_name: postgresDev
     environment:
       POSTGRES_DB: "postgres"
       POSTGRES_USER: "user"
@@ -13,7 +14,7 @@ services:
     networks:
       - post
 
-  pgadmin:
+  pgadminDev:
     user: "${UID}:${GID}"
     container_name: pgadmin
     image: dpage/pgadmin4
