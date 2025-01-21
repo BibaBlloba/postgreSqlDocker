@@ -15,7 +15,6 @@ services:
       - post
 
   pgadminDev:
-    user: "${UID}:${GID}"
     container_name: pgadmin
     image: dpage/pgadmin4
     environment:
@@ -23,7 +22,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: "123"
       PGADMIN_CONFIG_SERVER_MODE: "False"
     volumes:
-      - /home/akeka/proj/postgresqlDocker/data/:/var/lib/pgadmin
+      - pgadmin:/var/lib/pgadmin
     ports:
       - "81:80"
     networks:
